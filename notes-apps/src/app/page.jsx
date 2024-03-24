@@ -1,7 +1,8 @@
-import Auth from "./pages/Auth/pages";
+// import Auth from "./pages/Auth/pages";
+import MyNotes from "./pages/MyNotes/pages";
 
 export default function Home() {  
   return (
-      <Auth/>
+      <MyNotes/>
   );
 }
