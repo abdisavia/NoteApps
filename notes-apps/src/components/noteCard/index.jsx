@@ -1,11 +1,13 @@
+"use client";
 import CardContent from "./CardContent";
 
-export default function NoteCard({title,content,stared=false}){
+export default function NoteCard({title,content,stared=false,url}){
+    console.log(url);
     return(
-        <a className="relative inline-block w-full h-56 ">
-            <div className="relative w-[150px] h-[200px] bg-yellow-light rounded-xl">
+        <div className="relative inline-block w-full h-56 ">
+            <div className="relative w-[150px] h-[200px] bg-yellow-light rounded-xl" >
                 <div className="absolute w-[38px] h-[44px] bg-white right-0 rounded-bl-xl"></div>
-                <div className="absolute w-[30px] h-[30px] bg-yellow-light right-[30px] top-[0px] rounded-br-[70px] rounded-tr-xl"></div>
+                <div className="absolute w-[30px] h-[30px] bg-yellow-light right-[30px] top-[0px] rounded-br-[70px] rounded-tr-xl" href={url}></div>
                 {/* <div className="absolute w-[65px] h-[35px] bg-yellow-light right-[41px] "></div> */}
                 <div className="absolute z-20 w-[25px] h-[25px] bg-white right-[14px] top-[18px] rounded-full"></div>
                 <div className="absolute w-[30px] h-[30px] bg-yellow-light rotate-180 right-[0px] top-[40px] rounded-br-[70px] rounded-bl-xl"></div>
@@ -15,7 +17,7 @@ export default function NoteCard({title,content,stared=false}){
                     </svg>
                 </div>
             </div>
-            <CardContent title={title} content={content}/>
-        </a>
+            <CardContent title={title} content={content} url={url}/>
+        </div>
     );
 }

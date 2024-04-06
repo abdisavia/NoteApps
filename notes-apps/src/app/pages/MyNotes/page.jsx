@@ -1,16 +1,23 @@
+"use client"
 import CategoriesButton from "@/components/CategoriesBtn"
 import SearchBtn from "@/components/button/searchBtn"
 import SearchInput from "@/components/input/searchInput"
 import NoteCard from "@/components/noteCard"
+import { useContext } from "react"
+
+
 export default function MyNotes() {
     const listCategories = ["To do list", "Business", "Collage", "Shopping"]
     const listNotes = [{
+        id:"0",
         title:"Testing",
-        content:"testing1234567891011121314151617181920"
+        content:"testing1234567891011121314151617181920",
     },{
+        id:"1",
         title : "Testing2",
         content:"Testing2 123123412410924219084190284901024"
     }];
+    const context = useContext(CategoriesContext);
 
     return(
         <div className="mx-auto my-16 px-8 gap-2 h-full w-full ">
@@ -33,9 +40,11 @@ export default function MyNotes() {
             </div>
             <div className="mt-5">
                 <div className="grid grid-cols-2 gap-2">
-                    {listNotes.map((datNote) => {
-                        return <NoteCard title={datNote.title} content={datNote.content}/>
-                    })}
+                    <CategoriesContext.Provider value={listCategories}>
+                        {listNotes.map((datNote) => {
+                            return <NoteCard title={datNote.title} content={datNote.content} url={`/pages/note/${datNote.id}`}/>
+                        })}
+                    </CategoriesContext.Provider>
                 </div>
             </div>
         </div>
