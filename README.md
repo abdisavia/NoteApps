@@ -1,2 +1,2 @@
 # NoteApps
-This project is for learning 
+this project is for learning purpose
