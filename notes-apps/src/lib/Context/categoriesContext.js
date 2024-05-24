@@ -1,2 +1,2 @@
-import { createContext } from "react";
-export const CategoriesContext = createContext([]);
+// import { createContext } from "react";
+// export const CategoriesContext = createContext([]);

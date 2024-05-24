@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function AuthLayouts({children, type="signin"}){
     return(
-        <section className="relative w-full h-screen overflow-hidden  transition-all duration-1000">
+        <div className="relative w-full h-screen overflow-hidden  transition-all duration-1000">
             {children}
             <div className={"transition-all duration-1000 relative w-full ".concat(type == "signin" ? "top-[58%]" : "top-[50%]")}>
                 {/* -10% - -70% */}
@@ -15,6 +15,6 @@ export default function AuthLayouts({children, type="signin"}){
                 </motion.div>
             <div className={type == "signin" ? "transition-all duration-1000 relative top-[70%] w-full h-[400px] bg-cyan-dark z-30" : "transition-all duration-1000 relative top-[60%] w-full h-[501px] bg-cyan-dark z-30"}></div>
             </div>
-        </section>
+        </div>
     )
 }

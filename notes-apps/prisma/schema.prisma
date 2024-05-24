@@ -12,3 +12,40 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String   @unique
+  createdAt DateTime @default(now())
+
+  //fk
+  notes    Notes[]
+  category Category[]
+}
+
+model Notes {
+  title     String
+  content   Json
+  createdAt DateTime @default(now())
+  editedAt  DateTime
+
+  userId Int  @unique
+  user   User @relation(fields: [userId], references: [id])
+
+  categoryId Int      @unique
+  category   Category @relation(fields: [categoryId], references: [id])
+}
+
+model Category {
+  id         Int      @id @default(autoincrement())
+  name       String   @unique
+  createdAt  DateTime @default(now())
+  lastEdited DateTime
+
+  noteId Int     @unique
+  notes  Notes[]
+  userId Int
+  user   User    @relation(fields: [userId], references: [id])
+}

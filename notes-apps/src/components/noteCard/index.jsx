@@ -2,7 +2,6 @@
 import CardContent from "./CardContent";
 
 export default function NoteCard({title,content,stared=false,url}){
-    console.log(url);
     return(
         <div className="relative inline-block w-full h-56 ">
             <div className="relative w-[150px] h-[200px] bg-yellow-light rounded-xl" >
