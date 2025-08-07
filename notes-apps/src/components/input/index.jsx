@@ -8,7 +8,12 @@ export default function Input({type="text",name="", iconPath, className="",setCr
     const [text, setText] = useState("");
 
     const handlehover = (e) => {
-        setPosition("-100%")
+        if(e.target.value != "") return;
+        if(e.type == "mouseenter"){
+            setPosition("-100%");
+        }else {
+            setPosition("0%");
+        };
     }
     const handleChange = (e) => {
         if(name == "email"){
@@ -27,12 +32,17 @@ export default function Input({type="text",name="", iconPath, className="",setCr
                 />
             </div>
             <div className={"relative w-full h-full ".concat(type == "hidden" && type)}>
-                <motion.div initial={{ y:0 }} animate={{ y:position, fontSize:"14px" }} className="absolute text-xl font-normal text-white">{name}</motion.div>
+                <motion.div initial={{ y:0 }} animate={{ y:position, fontSize:"14px" }} className="absolute text-xl font-normal text-white duration-100">{name}</motion.div>
                 <input type={type} name={name} onMouseEnter={
                     (e) => {
                         e.preventDefault()
                         handlehover(e)
-                    }} onFocus={() => setPosition("-100%")} onChange={handleChange} className="bg-transparent relative w-full px-2 text-white" 
+                    }} onFocus={() => setPosition("-100%")} onMouseLeave={
+                        (e) => {
+                            e.preventDefault();
+                            handlehover(e);
+                        }
+                    } onChange={handleChange} className="bg-transparent relative w-full px-2 text-white" 
                     defaultValue={defaultValue} required/>
             </div>
         </div>
