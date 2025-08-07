@@ -12,7 +12,6 @@ const DynamicFormSignIn = dynamic(() => import("@/app/Auth/Signin/FormSignin"),{
 const DynamicButton = dynamic(() => import("@/components/button/index"), {ssr:false})
 
 export default function RenderSignin() {
-  const [credential, setCredentials] = useState({email:"", password:""});
   const [message, setMessage] = useState();
   const state = useTypeRender();
   const pathname = usePathname();

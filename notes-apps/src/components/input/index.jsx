@@ -16,12 +16,9 @@ export default function Input({type="text",name="", iconPath, className="",setCr
         };
     }
     const handleChange = (e) => {
-        if(name == "email"){
-            setCredential({...credential,email: e.target.value})
-        }else{
-            setCredential({...credential,password:e.target.value})
-        }
+        setCredential({...credential,name: e.target.value})   
     }
+    
     return(
         <div className={"w-[306px] h-[44px] p-[10px] flex border-b-2 border-white ".concat(className).concat(" ").concat(type == "hidden" && type)}>
             <div className="relative me-[10px] w-[32px] h-full">
