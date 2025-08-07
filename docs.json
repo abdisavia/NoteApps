@@ -1,0 +1,9 @@
+{
+    "Dockerfile":{
+        "image":"node:20-alpine"
+    },
+    "Fixing Error" : {
+        "description": "fixxing error hydration at Auth",
+        "Date" : "8 July 2025"
+    }
+}
