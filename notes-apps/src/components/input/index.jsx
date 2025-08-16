@@ -20,16 +20,20 @@ export default function Input({type="text",name="", iconPath, className="",setCr
     }
     
     return(
-        <div className={"w-[306px] h-[44px] p-[10px] flex border-b-2 border-white ".concat(className).concat(" ").concat(type == "hidden" && type)}>
+        <div className={"w-[306px] h-[44px] p-[10px] flex border-b-2 border-cyan-dark ".concat(className).concat(" ").concat(type == "hidden" && type)}>
             <div className="relative me-[10px] w-[32px] h-full">
-                <Image 
-                src={iconPath}
-                fill={true}
-                alt={name}
-                />
+                <div className="relative bg-cyan-dark w-7 h-7 rounded-full p-2">
+                    <Image 
+                    src={iconPath}
+                        // fill={true}
+                        width={"30"}
+                        height={"30"}
+                    alt={name}
+                    />
+                </div>
             </div>
             <div className={"relative w-full h-full ".concat(type == "hidden" && type)}>
-                <motion.div initial={{ y:0 }} animate={{ y:position, fontSize:"14px" }} className="absolute text-xl font-normal text-white duration-100">{name}</motion.div>
+                <motion.div initial={{ y:0 }} animate={{ y:position, fontSize:"14px" }} className="absolute text-xl font-normal text-cyan-dark duration-100">{name}</motion.div>
                 <input type={type} name={name} onMouseEnter={
                     (e) => {
                         e.preventDefault()
@@ -39,7 +43,7 @@ export default function Input({type="text",name="", iconPath, className="",setCr
                             e.preventDefault();
                             handlehover(e);
                         }
-                    } onChange={handleChange} className="bg-transparent relative w-full px-2 text-white" 
+                    } onChange={handleChange} className="bg-transparent relative w-full px-2 text-cyan-dark font-semibold" 
                     defaultValue={defaultValue} required/>
             </div>
         </div>

@@ -3,6 +3,7 @@ import CategoriesButton from "@/components/CategoriesBtn"
 import SearchBtn from "@/components/button/searchBtn"
 import SearchInput from "@/components/input/searchInput"
 import NoteCard from "@/components/noteCard"
+import { logout } from "@/lib/_actions/auth"
 
 
 export default function MyNotes() {
@@ -43,7 +44,8 @@ export default function MyNotes() {
                                 return <NoteCard title={datNote.title} content={datNote.content} url={`/pages/MyNotes/${datNote.id}`}/>
                             })}
                     </div>
-                </div>
+            </div>
+            <button className="btn hover:cursor-pointer" onClick={logout}>Logout</button>
             </div>
     )
 }

@@ -15,14 +15,14 @@ export default function RenderSignup() {
     return(
       <>
         <DynamicButton className="mt-5 row-span-1 mx-auto" initialPos={pathname} action={ state.changeType } />
-        <div className="transition-all duration-1000 row-span-2 ">
+        <div className="transition-all duration-1000 row-span-2 mt-2">
           <div className="relative w-auto h-auto mx-auto flex justify-center">
-              <h1 className="relative z-20 w-[150px] text-center font-bold text-3xl px-2 py-1">Sign Up</h1>
+              <h1 className="relative z-20 w-[150px] text-center font-bold text-2xl px-2 py-1">Sign Up</h1>
               <div className="absolute w-[150px] h-7 top-4 bg-yellow-light z-10"></div>
           </div>
-          <div className="relative w-auto h-auto mx-auto flex justify-center">
-              <h1 className="relative z-20 w-[300px] text-center text-3xl px-2 py-1">for explore more.</h1>
-              <div className="absolute w-[300px] h-7 top-4 bg-yellow-light z-10"></div>
+          <div className="relative w-auto h-auto mx-auto flex justify-center row-span-2 ">
+              <h1 className="relative z-20 w-[250px] text-center text-xl px-2 py-1">for explore more.</h1>
+              <div className="absolute w-[250px] h-7 top-4 bg-yellow-light z-10"></div>
           </div>
         </div>
         <DynamicFormSignup/>

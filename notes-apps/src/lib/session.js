@@ -3,6 +3,7 @@ import "server-only";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
+
 const secretKey = process.env.SESSION_SECRET
 const encodedKey = new TextEncoder().encode(secretKey);
 
@@ -16,7 +17,7 @@ export async function encrypt(payload) {
 
 export async function decrypt(session) {
     try {
-        const { payload } = new jwtVerify(session, encodedKey, {
+        const { payload } = await jwtVerify(session, encodedKey, {
             algorithms: ['HS256']
         })
         return payload
@@ -37,4 +38,9 @@ export async function createSession(userId) {
         sameSite: "lax",
         path:"/"
     })
+}
+
+export async function destroySession() {
+    const sessionStore = await cookies();
+    sessionStore.delete("session");
 }
